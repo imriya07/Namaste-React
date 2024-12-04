@@ -1,14 +1,34 @@
 import React from "react";
-import  ReactDOM  from "react-dom/client";
+import ReactDOM from "react-dom/client";
 
+//React.createElement = ReactElement - JS Object = HTMLElement
+// const heading = React.createElement("h1", { id: "heading" }, "Namaste React");
+// console.log(heading);
+// const ele = <span>I am Span</span>
+//Jsx = HTML-like or XML-like syntax
+//Jsx(transpiled before it recahes the JS) - parcel - Babel
+// JSx = Babel transpiles it to React.createElement = RecatElement - JS Object = HTMLElement(render)
+//React Element
+const Title =()=>(
+  <h1 className="head" tabIndex="5">
+    {/* {ele} */}
+    Namaste React using jsx
+  </h1>
+);
 
-const parent = React.createElement("div",{id:"parent"},
-[React.createElement("div",{id:"child"},React.createElement("h1",{},"This is a Namaste React"),React.createElement("h2",{},"I am an h2 Tag"))] ,
-[   React.createElement("div",{id:"child2"},React.createElement("h1",{},"By Riya"),React.createElement("h2",{},"I am an Child2 h2 Tag"))])
+//React Component
+// Class Based Componenet - Old
+// Functional Componenet - New
 
-console.log(parent);//object
-
-
-// const heading = React.createElement("h1", {id:"heading", ab :"riya"}, "Hello World from React!")
-const root = ReactDOM.createRoot(document.getElementById("root"))
-root.render(parent)
+//React Functional Component
+//Componenet composition
+const HeadingComponent = ()=>(
+    <div id="container">
+        {Title()}
+        <Title></Title>
+        <Title/>
+    <h1 className="heading">Namaste React Functional Componenet</h1>
+    </div>
+)
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<HeadingComponent/>);
