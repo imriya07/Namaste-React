@@ -1,25 +1,33 @@
 import React from "react";
-import ReactDOM from "react-dom/client"
+import ReactDOM from "react-dom/client";
 
-// const heading = React.createElement("h1", {id:"heading"}, "Hello world from React");
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(heading);
+// React.createElement =>  React.createElement - JS object => HTMLElement(render)
+//JSX - HTML Like or XML like Syntax
+//JSX (transpiled before it reaches the JS) - PARCEL - Babel
 
-// nested Element
-// React.createElement(object) = HTML((Browser understands))
+//JSX => React.createElement =>  ReactElement => JS object => HTMLElement(render)
 
-// const div = React.createElement("div", {id:"parent"},React.createElement("div",{id:"child"},React.createElement("h1",{},"I am H1 Tag!")));
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(div)
+//Raect Element
+const Title = () =>(
+<h1 className="head">
+  Namaste Raect using JSX
+</h1>
+)
 
-const div = React.createElement(
-  "div",
-  { id: "parent" },
-  React.createElement("div", { id: "child" }, [
-    React.createElement("h1", {}, "I am Riya"),
-    React.createElement("h2", {}, "I am an h2 Tag"),
-  ])
-);
+// React Component
+// class Based Components - OLD
+// Functional Components - NEW
+
+//Raect Functional Component 
+
+// Component composition
+const HeadingComponent = () =>(
+   <div id="container">
+    {Title()}
+    <h1 className="heading">Hi Functional Component</h1>
+  </div>
+)
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(div);
+root.render(<HeadingComponent/>);
+
