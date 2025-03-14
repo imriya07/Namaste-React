@@ -1,33 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-// React.createElement =>  React.createElement - JS object => HTMLElement(render)
-//JSX - HTML Like or XML like Syntax
-//JSX (transpiled before it reaches the JS) - PARCEL - Babel
-
-//JSX => React.createElement =>  ReactElement => JS object => HTMLElement(render)
-
-//Raect Element
-const Title = () =>(
-<h1 className="head">
-  Namaste Raect using JSX
-</h1>
-)
+//JSX = React.createElement = object = HTML(DOM)
+const heading =  (
+  <h1 id="title" key="h2">
+    Riya
+  </h1>
+);
 
 // React Component
-// class Based Components - OLD
-// Functional Components - NEW
-
-//Raect Functional Component 
-
-// Component composition
-const HeadingComponent = () =>(
-   <div id="container">
-    {Title()}
-    <h1 className="heading">Hi Functional Component</h1>
-  </div>
-)
+// Fncional - NEw way
+// Class Based Component - OLD way
+// Name of component starts with capital letter - it's not mandatory
+const HeaderComponent = () => {
+  return (
+    <div>
+      {heading}
+      <h1>Hi functional componenet</h1>
+      <h2>Rfgfdg</h2>
+    </div>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<HeadingComponent/>);
-
+root.render(<HeaderComponent/>);
