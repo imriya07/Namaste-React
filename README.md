@@ -52,7 +52,7 @@ import {Component} from "path";
 - useState() - Superpowerful state variables in react
 - useEffect()
 
+# 2 tyes roting in web pages
+- client side Routing
+- Server side Routing
 
-code see
-folder structure
-documentation

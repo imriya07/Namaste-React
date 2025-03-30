@@ -1,5 +1,6 @@
 import { LOGO_URL } from "../utils/contants";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
@@ -26,19 +27,13 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Home
-              </a>
+            <Link className="nav-link" to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                About Us
-              </a>
+             <Link className="nav-link" to="/about">About Us</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Contact Us
-              </a>
+            <Link className="nav-link" to="/contact">Contact Us</Link>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
