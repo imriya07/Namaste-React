@@ -1,9 +1,11 @@
 import { LOGO_URL } from "../utils/contants";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import usseOnlineStatus from "../utils/usseOnlineStatus";
 
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
+  const onlineStatus = usseOnlineStatus()
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -26,6 +28,9 @@ const Header = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
+            <li>
+              Online Status : {onlineStatus ? "🟢" : "🔴"}
+              </li>
             <li className="nav-item">
             <Link className="nav-link" to="/">Home</Link>
             </li>
@@ -34,6 +39,9 @@ const Header = () => {
             </li>
             <li className="nav-item">
             <Link className="nav-link" to="/contact">Contact Us</Link>
+            </li>
+            <li className="nav-item">
+            <Link className="nav-link" to="/grocery">Grocery</Link>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
