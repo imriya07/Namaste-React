@@ -5,60 +5,28 @@ import usseOnlineStatus from "../utils/usseOnlineStatus";
 
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
-  const onlineStatus = usseOnlineStatus()
+  const onlineStatus = usseOnlineStatus();
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container">
-        <a className="navbar-brand" href="#">
-          <img
-            src={LOGO_URL}
-            alt="Logo"
-            className="logo"
-            style={{ height: "50px" }}
-          />
+    <nav className="bg-white shadow-md py-4">
+      <div className="container mx-auto flex items-center justify-between px-4">
+        <a href="#" className="flex items-center space-x-2">
+          <img src={LOGO_URL} alt="Logo" className="h-12" />
+          <span className="text-xl font-semibold">Brand</span>
         </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
-            <li>
-              Online Status : {onlineStatus ? "🟢" : "🔴"}
-              </li>
-            <li className="nav-item">
-            <Link className="nav-link" to="/">Home</Link>
-            </li>
-            <li className="nav-item">
-             <Link className="nav-link" to="/about">About Us</Link>
-            </li>
-            <li className="nav-item">
-            <Link className="nav-link" to="/contact">Contact Us</Link>
-            </li>
-            <li className="nav-item">
-            <Link className="nav-link" to="/grocery">Grocery</Link>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Cart
-              </a>
-            </li>
-            <button
-              className="login"
-              onClick={() => {
-                btnNameReact === "Login"
-                  ? setBtnNameReact("Logout")
-                  : setBtnNameReact("Login");
-              }}
-            >
-              {btnNameReact}
-            </button>
-          </ul>
+        <div className="flex items-center space-x-6">
+          <span className="text-lg">Online Status: {onlineStatus ? "🟢" : "🔴"}</span>
+          <Link className="text-gray-700 hover:text-blue-600" to="/">Home</Link>
+          <Link className="text-gray-700 hover:text-blue-600" to="/about">About Us</Link>
+          <Link className="text-gray-700 hover:text-blue-600" to="/contact">Contact Us</Link>
+          <Link className="text-gray-700 hover:text-blue-600" to="/grocery">Grocery</Link>
+          <a href="#" className="text-gray-700 hover:text-blue-600">Cart</a>
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+            onClick={() => setBtnNameReact(btnNameReact === "Login" ? "Logout" : "Login")}
+          >
+            {btnNameReact}
+          </button>
         </div>
       </div>
     </nav>
