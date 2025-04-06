@@ -3,10 +3,14 @@ import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import ResTaurantCatogory from "./ResTaurantCatogory";
 
+
 const RestaurantMenu = () => {
+
+  
   // const [resInfo, setResInfo] = useState(null);
   const {resId} = useParams()
   const dummy = "Dummy Data";
+ 
 
   const resInfo = useRestaurantMenu(resId)
 
@@ -33,10 +37,10 @@ const RestaurantMenu = () => {
 
   const itemCards =
     resInfo?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.offers;
-  console.log("itemCards", itemCards);
+  // console.log("itemCards", itemCards);
 
   const catogiries =  resInfo?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.offers.filter(c => c.info?.offerTag === "DEAL OF DAY");
-  console.log("filtrryy&&&&",catogiries);
+  // console.log("filtrryy&&&&",catogiries);
   
 
 
@@ -49,7 +53,12 @@ const RestaurantMenu = () => {
       </p>
 
       {/* catogiries acordian */}
-      {catogiries.map((category, index) => <ResTaurantCatogory key={category.info.id || index} data ={category?.info} dummy={dummy}/>)}
+      {catogiries.map((category, index) => (
+        <div key={category.info.id || index} className="my-4">
+          <ResTaurantCatogory data={category?.info} dummy={dummy} />
+        </div>
+      ))}
+
       {/* <ul>
         {itemCards.map((item, index) => (
           <li key={item.info.id || index}>{item.info.description}</li>

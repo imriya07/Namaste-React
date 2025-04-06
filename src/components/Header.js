@@ -3,13 +3,15 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import usseOnlineStatus from "../utils/usseOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
   const onlineStatus = usseOnlineStatus();
 
   const {loggedInUser} = useContext(UserContext)
-  console.log("7y7t7t6",loggedInUser);
+
+  const cartItems = useSelector((store) => store.cart.items);
   
 
   return (
@@ -25,7 +27,8 @@ const Header = () => {
           <Link className="text-gray-700 hover:text-blue-600" to="/about">About Us</Link>
           <Link className="text-gray-700 hover:text-blue-600" to="/contact">Contact Us</Link>
           <Link className="text-gray-700 hover:text-blue-600" to="/grocery">Grocery</Link>
-          <a href="#" className="text-gray-700 hover:text-blue-600">Cart</a>
+          <Link href="#" className="text-gray-700 hover:text-blue-600 font-bold text-xl">Cart -({cartItems.length} items)</Link>
+          
           <button
             className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
             onClick={() => setBtnNameReact(btnNameReact === "Login" ? "Logout" : "Login")}

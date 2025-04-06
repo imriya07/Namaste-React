@@ -52,7 +52,14 @@ import {Component} from "path";
 - useState() - Superpowerful state variables in react
 - useEffect()
 
-# 2 tyes roting in web pages
+# 2 types roting in web pages
 - client side Routing
 - Server side Routing
 
+# Redux Toolkit
+- Install @reduxjs/toolkit and react-redux
+- Build our store
+- Connect our store to our app
+- Slice (cartSlice)
+- dispath(action)
+- Selector
