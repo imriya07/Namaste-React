@@ -1,11 +1,16 @@
 import { LOGO_URL } from "../utils/contants";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import usseOnlineStatus from "../utils/usseOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
   const onlineStatus = usseOnlineStatus();
+
+  const {loggedInUser} = useContext(UserContext)
+  console.log("7y7t7t6",loggedInUser);
+  
 
   return (
     <nav className="bg-white shadow-md py-4">
@@ -27,6 +32,8 @@ const Header = () => {
           >
             {btnNameReact}
           </button>
+
+          <li className="px-4 font-bold">{loggedInUser}</li>
         </div>
       </div>
     </nav>

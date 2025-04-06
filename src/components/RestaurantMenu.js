@@ -1,10 +1,12 @@
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import ResTaurantCatogory from "./ResTaurantCatogory";
 
 const RestaurantMenu = () => {
   // const [resInfo, setResInfo] = useState(null);
   const {resId} = useParams()
+  const dummy = "Dummy Data";
 
   const resInfo = useRestaurantMenu(resId)
 
@@ -32,18 +34,27 @@ const RestaurantMenu = () => {
   const itemCards =
     resInfo?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.offers;
   console.log("itemCards", itemCards);
+
+  const catogiries =  resInfo?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.offers.filter(c => c.info?.offerTag === "DEAL OF DAY");
+  console.log("filtrryy&&&&",catogiries);
+  
+
+
   if (resInfo === null) return <Shimmer />;
   return (
-    <div className="menu">
-      <h1>{resname}</h1>
-      <p>
+    <div className="menu text-center">
+      <h1 className="font-bold my-6 text-2xl">{resname}</h1>
+      <p className="font-bold text-lg">
         {cuisines.join(" ,")} - {costforTwo}
       </p>
-      <ul>
+
+      {/* catogiries acordian */}
+      {catogiries.map((category, index) => <ResTaurantCatogory key={category.info.id || index} data ={category?.info} dummy={dummy}/>)}
+      {/* <ul>
         {itemCards.map((item, index) => (
           <li key={item.info.id || index}>{item.info.description}</li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 };
